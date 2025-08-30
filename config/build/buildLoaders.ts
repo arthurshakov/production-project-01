@@ -1,21 +1,21 @@
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import webpack from "webpack";
-import { BuildOptions } from "./types/config";
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import webpack from 'webpack';
+import { BuildOptions } from './types/config';
 
-export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 	const svgLoader = {
 		test: /\.svg$/,
 		use: ['@svgr/webpack'],
-	}
+	};
 
 	const fileLoader = {
 		test: /\.(png|jpe?g|gif|woff|woff2)$/i,
 		use: [
 			{
 				loader: 'file-loader',
-			}
+			},
 		],
-	}
+	};
 
 	const typescriptLoader = {
 		test: /\.tsx?$/,
@@ -34,13 +34,13 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
 				options: {
 					modules: {
 						auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-					localIdentName: isDev
-						? '[path][name]__[local]--[hash:base64:5]'
-						: '[hash:base64:8]',
+						localIdentName: isDev
+							? '[path][name]__[local]--[hash:base64:5]'
+							: '[hash:base64:8]',
 					},
-				}
+				},
 			},
-			'sass-loader',    // Interprets @import, url() etc.
+			'sass-loader', // Interprets @import, url() etc.
 		],
 	};
 
@@ -52,18 +52,18 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
 			options: {
 				// Babel options can be defined here or in a separate Babel config file (.babelrc or babel.config.js)
 				presets: [
-					['@babel/preset-env', { targets: "defaults" }] // Transpile based on target environments
+					['@babel/preset-env', { targets: 'defaults' }], // Transpile based on target environments
 				],
 				plugins: [
-					["i18next-extract", {
+					['i18next-extract', {
 						locales: ['ru', 'en'],
 						keyAsDefaultValue: true,
 					}],
 				],
 				cacheDirectory: true, // Enable caching for faster rebuilds
-			}
-		}
-	}
+			},
+		},
+	};
 
 	return [
 		babelLoader,
