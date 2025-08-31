@@ -9,7 +9,9 @@
     "build:dev": "webpack --env mode=development",
     "webpack": "webpack",
     "eslint": "eslint '**/*.{ts,tsx}'",
-    "eslint-fix": "eslint '**/*.{ts,tsx}' --fix"
+    "eslint-fix": "eslint '**/*.{ts,tsx}' --fix",
+    "stylelint": "npx stylelint \"**/*.scss\"",
+    "stylelint-fix": "npx stylelint \"**/*.scss\" --fix"
   },
   "repository": {
     "type": "git",
