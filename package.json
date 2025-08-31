@@ -11,7 +11,9 @@
     "eslint": "eslint '**/*.{ts,tsx}'",
     "eslint-fix": "eslint '**/*.{ts,tsx}' --fix",
     "stylelint": "npx stylelint \"**/*.scss\"",
-    "stylelint-fix": "npx stylelint \"**/*.scss\" --fix"
+    "stylelint-fix": "npx stylelint \"**/*.scss\" --fix",
+    "jest-init": "jest --init",
+    "unit": "jest --config ./config/jest/jest.config.ts"
   },
   "repository": {
     "type": "git",
