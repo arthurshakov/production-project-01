@@ -3,5 +3,8 @@
 	"Тестовый пример": "Test example",
 	"Главная": "Main page",
 	"Страница не найдена": "Page not found",
-	"...загрузка": "...loading"
+	"...загрузка": "...loading",
+	"Произошла непредвиденная ошибка": "Something wrong happened",
+	"Обновить страницу": "Reload page",
+	"Бросить ошибку": "Throw error"
 }
