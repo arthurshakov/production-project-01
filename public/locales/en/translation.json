@@ -7,5 +7,6 @@
 	"...загрузка": "...loading",
 	"Произошла непредвиденная ошибка": "Something wrong happened",
 	"Обновить страницу": "Reload page",
-	"Бросить ошибку": "Throw error"
+	"Бросить ошибку": "Throw error",
+	"Переключить": "Toggle"
 }

@@ -12,9 +12,7 @@ export default {
 	},
 } as ComponentMeta<typeof MainPage>;
 
-type MainPageProps = React.ComponentProps<typeof MainPage>;
-
-const Template: ComponentStory<typeof MainPage> = (args: MainPageProps) => <MainPage {...args} />;
+const Template: ComponentStory<typeof MainPage> = () => <MainPage />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
