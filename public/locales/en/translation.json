@@ -10,5 +10,7 @@
 	"Обновить страницу": "Reload page",
 	"Бросить ошибку": "Throw error",
 	"Переключить": "Toggle",
-	"Войти": "Enter"
+	"Войти": "Enter",
+	"increment": "increment",
+	"decrement": "decrement"
 }
