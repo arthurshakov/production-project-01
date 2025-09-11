@@ -1,0 +1,10 @@
+.LoginForm {
+	display: grid;
+	grid-template-columns: 100%;
+	width: 400px;
+	gap: 15px;
+}
+
+.submit-button {
+	justify-self: right;
+}
