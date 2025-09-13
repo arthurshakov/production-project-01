@@ -11,8 +11,12 @@
 	"Бросить ошибку": "Throw error",
 	"Переключить": "Toggle",
 	"Войти": "Enter",
+	"Выйти": "Log out",
 	"increment": "increment",
 	"decrement": "decrement",
+	"Введите текст": "Enter text",
 	"Введите логин": "Enter login",
-	"Введите пароль": "Enter password"
+	"Введите пароль": "Enter password",
+	"Форма авторизации": "Authorization form",
+	"Вы ввели неверный логин или пароль": "You entered invalid login or password"
 }
