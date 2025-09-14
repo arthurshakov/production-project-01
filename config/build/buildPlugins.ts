@@ -19,6 +19,10 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
 		}),
 	];
 
+	// plugins.push(new BundleAnalyzerPlugin({
+	// 	openAnalyzer: true,
+	// }));
+
 	if (isDev) {
 		plugins.push(new BundleAnalyzerPlugin({
 			openAnalyzer: false,
