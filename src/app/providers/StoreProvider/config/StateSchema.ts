@@ -4,6 +4,7 @@ import {
 } from '@reduxjs/toolkit';
 import { CounterSchema } from '../../../../entities/Counter';
 import { UserSchema } from '../../../../entities/User';
+import { ProfileSchema } from '../../../../entities/Profile';
 
 export interface StateSchema {
 	counter: CounterSchema;
@@ -11,6 +12,7 @@ export interface StateSchema {
 
 	// Асинхронные редюсеры
 	loginForm?: LoginSchema;
+	profile?: ProfileSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
