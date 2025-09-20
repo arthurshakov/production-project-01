@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import cls from './Text.module.scss';
 
@@ -18,8 +17,6 @@ interface TextProps {
 export const Text = memo(({
 	className, title, text, theme = TextTheme.PRIMARY,
 }: TextProps) => {
-	const { t } = useTranslation();
-
 	return (
 		<div className={classNames(cls.Text, {}, [className, cls[theme]])}>
 			{title && <p className={cls.title}>{title}</p>}

@@ -1,8 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import {
 	ReactNode, MouseEvent, useState, useRef,
 	useEffect,
 	useCallback,
+	MutableRefObject,
 } from 'react';
 import cls from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
@@ -22,9 +23,9 @@ export const Modal = ({
 }: ModalProps) => {
 	const [modalIsClosing, setModalIsClosing] = useState(false);
 	const [isMounted, setIsMounted] = useState(false);
-	const timerRef = useRef<ReturnType<typeof setTimeout>>();
+	const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
-	const mods = {
+	const mods: Mods = {
 		[cls.opened]: isOpen,
 		[cls.isClosing]: modalIsClosing,
 	};

@@ -22,7 +22,7 @@ import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
 	className?: string;
-	onSuccess?: () => void;
+	onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -45,16 +45,23 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 		dispatch(loginActions.setPassword(value));
 	}, [dispatch]);
 
+	// const onLoginClick = useCallback(async () => {
+	// 	const result = await dispatch(loginByUsername({ username, password }));
+
+	// 	if (result.meta.requestStatus === 'fulfilled') {
+	// 		onSuccess?.();
+	// 	}
+	// }, [dispatch, onSuccess, password, username]);
+
 	const onLoginClick = useCallback(async () => {
 		const result = await dispatch(loginByUsername({ username, password }));
-
 		if (result.meta.requestStatus === 'fulfilled') {
-			onSuccess?.();
+			onSuccess();
 		}
-	}, [dispatch, onSuccess, password, username]);
+	}, [onSuccess, dispatch, password, username]);
 
 	return (
-		<DynamicModuleLoader reducers={initialReducers}>
+		<DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
 			<div className={classNames(cls.LoginForm, {}, [className])}>
 				<Text title={t('Форма авторизации')} />
 				{
