@@ -1,0 +1,8 @@
+# Ignore template folders
+.fttemplates/
+
+# Other common ignores
+node_modules/
+dist/
+build/
+coverage/

@@ -1,8 +1,11 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
-import { buildCssLoader } from './loaders/buildCssLoaders';
+import { buildCssLoader } from './loaders/buildCssLoader';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+	const {isDev} = options;
+
 	const svgLoader = {
 		test: /\.svg$/,
 		use: ['@svgr/webpack'],
@@ -25,26 +28,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
 	const cssLoader = buildCssLoader(isDev);
 
-	const babelLoader = {
-		test: /\.(js|jsx|tsx)$/, // Apply babel-loader to .js, .mjs, and .cjs files
-		exclude: /node_modules/, // Exclude files in node_modules to speed up compilation
-		use: {
-			loader: 'babel-loader',
-			options: {
-				// Babel options can be defined here or in a separate Babel config file (.babelrc or babel.config.js)
-				presets: [
-					['@babel/preset-env', { targets: 'defaults' }], // Transpile based on target environments
-				],
-				plugins: [
-					['i18next-extract', {
-						locales: ['ru', 'en'],
-						keyAsDefaultValue: true,
-					}],
-				],
-				cacheDirectory: true, // Enable caching for faster rebuilds
-			},
-		},
-	};
+	const babelLoader = buildBabelLoader(options);
 
 	return [
 		babelLoader,
