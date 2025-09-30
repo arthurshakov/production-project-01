@@ -1,11 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader, ReducersList }
 	from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
 	fetchProfileData,
 	getProfileError,
@@ -33,6 +35,7 @@ const reducers: ReducersList = {
 const ProfilePage = ({ className }: ProfilePageProps) => {
 	const { t } = useTranslation('profile');
 	const dispatch = useAppDispatch();
+	const { id } = useParams<{id: string}>();
 
 	const formData = useSelector(getProfileForm);
 	const isLoading = useSelector(getProfileIsLoading);
@@ -48,11 +51,17 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 		[ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
 	};
 
-	useEffect(() => {
-		if (__PROJECT__ !== 'storybook') {
-			dispatch(fetchProfileData());
+	useInitialEffect(() => {
+		if (id) {
+			dispatch(fetchProfileData(id));
 		}
-	}, [dispatch]);
+	});
+
+	// useEffect(() => {
+	// 	if (__PROJECT__ !== 'storybook') {
+	// 		dispatch(fetchProfileData());
+	// 	}
+	// }, [dispatch]);
 
 	const onChangeFirstName = useCallback((value?: string) => {
 		dispatch(profileActions.updateProfile({ first: value || '' }));
