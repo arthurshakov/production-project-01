@@ -8,6 +8,10 @@ import { Article, ArticleBlockType, ArticleType } from '../../model/types/articl
 
 const article: Article = {
 	id: '1',
+	user: {
+		id: '1',
+		username: 'admin',
+	},
 	title: 'Javascript news',
 	subtitle: 'Что нового в JS за 2022 год?',
 	img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
@@ -77,7 +81,7 @@ const article: Article = {
 };
 
 export default {
-	title: 'entities/ArticleDetails',
+	title: 'entities/Article/ArticleDetails',
 	component: ArticleDetails,
 	argTypes: {
 		backgroundColor: { control: 'color' },
