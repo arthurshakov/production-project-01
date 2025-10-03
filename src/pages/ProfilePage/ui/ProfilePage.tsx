@@ -102,7 +102,13 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 				<ProfilePageHeader />
 
 				{validateErrors?.length && validateErrors.map((error) => {
-					return <Text theme={TextTheme.ERROR} text={validateErrorTranslates[error]} />;
+					return (
+						<Text
+							theme={TextTheme.ERROR}
+							text={validateErrorTranslates[error]}
+							key={error}
+						/>
+					);
 				})}
 
 				<ProfileCard

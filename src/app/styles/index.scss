@@ -4,6 +4,10 @@
 @import "themes/dark";
 @import "themes/orange";
 
+html {
+	overscroll-behavior: none;
+}
+
 body {
 	overscroll-behavior: none;
 	font: var(--font-m);
