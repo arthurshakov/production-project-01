@@ -22,9 +22,7 @@ export const AppRouter = memo(() => {
 	const renderWithWrapper = useCallback((route: AppRoutesProps) => {
 		const element = (
 			<Suspense fallback={<PageLoader />}>
-				<div className="page-wrapper">
-					{route.element}
-				</div>
+				{route.element}
 			</Suspense>
 		);
 
@@ -41,17 +39,6 @@ export const AppRouter = memo(() => {
 		<Suspense fallback={<PageLoader />}>
 			<Routes>
 				{Object.values(routeConfig).map(renderWithWrapper)}
-				{/* {routes.map(({ element, path }) => (
-					<Route
-						key={path}
-						path={path}
-						element={(
-							<div className="page-wrapper">
-								{element}
-							</div>
-						)}
-					/>
-				))} */}
 			</Routes>
 		</Suspense>
 	);
