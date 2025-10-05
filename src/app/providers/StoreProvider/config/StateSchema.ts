@@ -1,5 +1,6 @@
 import { LoginSchema } from 'features/AuthByUserName';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
+import { UISchema } from 'features/UI';
 import {
 	AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
@@ -15,6 +16,7 @@ import { ArticleDetailsSchema } from '../../../../entities/Article';
 export interface StateSchema {
 	counter: CounterSchema;
 	user: UserSchema;
+	ui: UISchema;
 
 	// Асинхронные редюсеры
 	loginForm?: LoginSchema;

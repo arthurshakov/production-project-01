@@ -1,4 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import cls from './ArticleList.module.scss';
@@ -29,6 +30,14 @@ export const ArticleList = memo(({
 			<ArticleListItem article={article} view={view} key={article.id} className={cls.card} />
 		);
 	};
+
+	if (!isLoading && !articles.length) {
+		return (
+			<div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+				<Text title={t('Статьи не найдены')} />
+			</div>
+		);
+	}
 
 	return (
 		<div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>

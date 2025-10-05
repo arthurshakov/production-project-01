@@ -7,7 +7,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
 	fetchProfileData,

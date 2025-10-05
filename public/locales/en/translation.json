@@ -26,5 +26,18 @@
 	"Копировать": "Copy",
 	"Комментарии отсутствуют": "There are no comments",
 	"Отправить": "Send",
-	"Читать далее": "Read more"
+	"Читать далее": "Read more",
+	"Сортировать ПО": "Sort BY",
+	"Поиск": "Search",
+	"по": "by",
+	"возрастанию": "asc",
+	"убыванию": "desc",
+	"дате создания": "date of creation",
+	"названию": "title",
+	"просмотрам": "views",
+	"IT": "IT",
+	"Все статьи": "All articles",
+	"Экономика": "Economics",
+	"Наука": "Science",
+	"Статьи не найдены": "Articles not found"
 }
