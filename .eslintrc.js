@@ -41,10 +41,10 @@ module.exports = {
 		'react/jsx-props-no-spreading': 'warn',
 		'no-shadow': 'off',
 		'no-underscore-dangle': 'off',
-		'max-len': ['error', 100, { ignoreComments: true }],
+		'max-len': ['error', 125, { ignoreComments: true }],
 		'i18next/no-literal-string': [
 			'error',
-			{ markupOnly: true, ignoreAttribute: ['data-testid', 'to'] },
+			{ markupOnly: true, ignoreAttribute: ['data-testid', 'to', 'target'] },
 		],
 		'arrow-body-style': 'off',
 		'jsx-a11y/no-static-element-interactions': 'off',
