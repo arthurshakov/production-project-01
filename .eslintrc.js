@@ -22,6 +22,7 @@ module.exports = {
 		'@typescript-eslint',
 		'i18next',
 		'react-hooks',
+		'artur11',
 	],
 	rules: {
 		'react/jsx-indent': ['error', 'tab'],
@@ -54,6 +55,7 @@ module.exports = {
 		'no-param-reassign': 'off',
 		'no-undef': 'off',
 		'react/no-array-index-key': 'off',
+		'artur11/path-checker': 'error',
 	},
 	globals: {
 		__IS_DEV__: true,
