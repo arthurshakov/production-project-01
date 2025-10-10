@@ -5,6 +5,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { HStack } from 'shared/ui/Stack';
 import { getUserAuthData } from '../../../../entities/User';
 import {
 	getProfileData,
@@ -12,7 +13,6 @@ import {
 	profileActions,
 	updateProfileData,
 } from '../../../../entities/Profile';
-import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
 	className?: string;
@@ -40,40 +40,41 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
 	}, [dispatch]);
 
 	return (
-		<div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+		<HStack justify="between" max className={classNames('', {}, [className])}>
 			<Text title={t('Профиль')} />
 
-			{canEdit && (
-				<div className={cls.btnsWrapper}>
-					{readonly ? (
-						<Button
-							theme={ButtonTheme.OUTLINE}
-							className={cls.editBtn}
-							onClick={onEdit}
-						>
-							{t('Редактировать')}
-						</Button>
-					) : (
-						<>
-							<Button
-								theme={ButtonTheme.OUTLINE_RED}
-								className={cls.cancelBtn}
-								onClick={onCancelEdit}
-							>
-								{t('Отменить')}
-							</Button>
+			{
+				canEdit && (
+					<div>
+						{
+							readonly ? (
+								<Button
+									theme={ButtonTheme.OUTLINE}
+									onClick={onEdit}
+								>
+									{t('Редактировать')}
+								</Button>
+							) : (
+								<HStack gap="8">
+									<Button
+										theme={ButtonTheme.OUTLINE_RED}
+										onClick={onCancelEdit}
+									>
+										{t('Отменить')}
+									</Button>
 
-							<Button
-								theme={ButtonTheme.OUTLINE}
-								className={cls.saveBtn}
-								onClick={onSave}
-							>
-								{t('Сохранить')}
-							</Button>
-						</>
-					)}
-				</div>
-			)}
-		</div>
+									<Button
+										theme={ButtonTheme.OUTLINE}
+										onClick={onSave}
+									>
+										{t('Сохранить')}
+									</Button>
+								</HStack>
+							)
+						}
+					</div>
+				)
+			}
+		</HStack>
 	);
 };

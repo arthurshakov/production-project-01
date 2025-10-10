@@ -7,6 +7,7 @@ import { DynamicModuleLoader, ReducersList }
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { HStack } from 'shared/ui/Stack';
 import { addCommentFormActions, addCommentFormReducer }
 	from '../../model/slices/addCommentFormSlice';
 import { getAddCommentFormError, getAddCommentFormText }
@@ -39,7 +40,7 @@ const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) 
 
 	return (
 		<DynamicModuleLoader reducers={reducers}>
-			<div className={classNames(cls.AddCommentForm, {}, [className])}>
+			<HStack justify="between" max className={classNames(cls.AddCommentForm, {}, [className])}>
 				<Input
 					placeholder={t('Введите текст комментария')}
 					value={text}
@@ -52,7 +53,7 @@ const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) 
 				>
 					{t('Отправить')}
 				</Button>
-			</div>
+			</HStack>
 		</DynamicModuleLoader>
 	);
 });
