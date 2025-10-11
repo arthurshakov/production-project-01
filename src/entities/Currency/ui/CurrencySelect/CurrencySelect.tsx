@@ -39,7 +39,7 @@ export const CurrencySelect = memo(({
 			label={t('Укажите страну')}
 			className={classNames('', {}, [className])}
 			readonly={readonly}
-			direction="top"
+			direction="top left"
 		/>
 		// <Select
 		// 	className={classNames('', {}, [className])}

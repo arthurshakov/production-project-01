@@ -1,23 +1,22 @@
 .Navbar {
 	width: 100%;
 	height: var(--navbar-height);
-	color: var(--inverted-primary-color);
-	background-color: var(--inverted-bg-color);
+	background: var(--inverted-bg-color);
 	display: flex;
 	align-items: center;
 	padding: 20px;
-	gap: 15px;
 }
 
-.links {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.links,
+.dropdown {
 	margin-left: auto;
-	gap: 20px;
+}
+
+.mainLink {
+	margin-right: 15px;
 }
 
 .appName {
-	margin-left: 15px;
 	width: var(--sidebar-width);
+	margin-left: 15px;
 }
