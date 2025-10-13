@@ -5,7 +5,7 @@ import 'app/styles/index.scss';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 
 export default {
-	title: 'shared/ArticleDetailsPageHeader',
+	title: 'pages/ArticleDetailsPage/ArticleDetailsPageHeader',
 	component: ArticleDetailsPageHeader,
 	argTypes: {
 		backgroundColor: { control: 'color' },

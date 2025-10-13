@@ -5,7 +5,7 @@ import 'app/styles/index.scss';
 import { ArticlesPageFilters } from './ArticlesPageFilters';
 
 export default {
-	title: 'pages/Article/ArticlesPageFilters',
+	title: 'pages/ArticlesPage/ArticlesPageFilters',
 	component: ArticlesPageFilters,
 	argTypes: {
 		backgroundColor: { control: 'color' },

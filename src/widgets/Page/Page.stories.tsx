@@ -5,7 +5,7 @@ import 'app/styles/index.scss';
 import { Page } from './Page';
 
 export default {
-	title: 'shared/Page',
+	title: 'widgets/Page',
 	component: Page,
 	argTypes: {
 		backgroundColor: { control: 'color' },

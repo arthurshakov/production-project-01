@@ -9,7 +9,7 @@ import { Currency } from '../../../entities/Currency';
 import ProfilePage from './ProfilePage';
 
 export default {
-	title: 'pages/ProfilePage',
+	title: 'pages/ProfilePage/ProfilePage',
 	component: ProfilePage,
 	argTypes: {
 		backgroundColor: { control: 'color' },

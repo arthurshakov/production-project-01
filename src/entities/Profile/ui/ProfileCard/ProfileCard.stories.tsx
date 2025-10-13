@@ -8,7 +8,7 @@ import { Currency } from '../../../../entities/Currency';
 import { ProfileCard } from './ProfileCard';
 
 export default {
-	title: 'entities/ProfileCard',
+	title: 'entities/Profile/ProfileCard',
 	component: ProfileCard,
 	argTypes: {
 		backgroundColor: { control: 'color' },

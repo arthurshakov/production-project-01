@@ -80,7 +80,7 @@ const article: Article = {
 };
 
 export default {
-	title: 'pages/ArticleDetailsPage',
+	title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
 	component: ArticleDetailsPage,
 	argTypes: {
 		backgroundColor: { control: 'color' },

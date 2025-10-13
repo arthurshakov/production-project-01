@@ -5,7 +5,7 @@ import 'app/styles/index.scss';
 import { CommentCard } from './CommentCard';
 
 export default {
-	title: 'shared/CommentCard',
+	title: 'entities/Comment/CommentCard',
 	component: CommentCard,
 	argTypes: {
 		backgroundColor: { control: 'color' },

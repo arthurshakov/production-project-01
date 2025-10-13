@@ -5,7 +5,7 @@ import 'app/styles/index.scss';
 import ArticlesPage from './ArticlesPage';
 
 export default {
-	title: 'pages/Article/ArticlesPage',
+	title: 'pages/ArticlesPage/ArticlesPage',
 	component: ArticlesPage,
 	argTypes: {
 		backgroundColor: { control: 'color' },

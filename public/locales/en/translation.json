@@ -43,5 +43,6 @@
 	"Редактировать": "Edit",
 	"Назад к списку": "Back to list",
 	"Тех Новости": "Tech News",
-	"Создать статью": "Create article"
+	"Создать статью": "Create article",
+	"Ошибка при загрузке статей": "Error when loading articles"
 }
