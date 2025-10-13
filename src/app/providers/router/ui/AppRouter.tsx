@@ -5,20 +5,6 @@ import { PageLoader } from 'widgets/PageLoader/ui/PageLoader';
 import { RequireAuth } from './RequireAuth';
 
 export const AppRouter = memo(() => {
-	// const { t } = useTranslation();
-
-	// const isAuth = useSelector(getUserAuthData);
-
-	// const routes = useMemo(() => {
-	// 	return Object.values(routeConfig).filter((route) => {
-	// 		if (route.authOnly && !isAuth) {
-	// 			return false;
-	// 		}
-
-	// 		return true;
-	// 	});
-	// }, [isAuth]);
-
 	const renderWithWrapper = useCallback((route: AppRoutesProps) => {
 		const element = (
 			<Suspense fallback={<PageLoader />}>
@@ -30,7 +16,7 @@ export const AppRouter = memo(() => {
 			<Route
 				key={route.path}
 				path={route.path}
-				element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+				element={route.authOnly ? <RequireAuth roles={route.roles}>{element}</RequireAuth> : element}
 			/>
 		);
 	}, []);

@@ -44,5 +44,6 @@
 	"Назад к списку": "Back to list",
 	"Тех Новости": "Tech News",
 	"Создать статью": "Create article",
-	"Ошибка при загрузке статей": "Error when loading articles"
+	"Ошибка при загрузке статей": "Error when loading articles",
+	"У вас нет доступа к этой странице": "You don't have access to this page"
 }
