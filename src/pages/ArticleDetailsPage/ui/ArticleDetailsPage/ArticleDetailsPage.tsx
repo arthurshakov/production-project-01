@@ -25,27 +25,13 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 	const { t } = useTranslation('article-details');
 	const { id } = useParams<{id: string}>();
 
-	// const comments = useSelector(getArticleComments.selectAll);
-	// const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-	// const commentsError = useSelector(getArticleCommentsError);
-	// const dispatch = useAppDispatch();
-
-	// const onSendComment = useCallback((text: string) => {
-	// 	dispatch(addCommentForArticle(text));
-	// }, [dispatch]);
-
-	// useInitialEffect(() => {
-	// 	dispatch(fetchCommentsByArticleId(id));
-	// 	// dispatch(fetchArticleRecommendations());
-	// });
-
-	if (!id) {
-		return (
-			<Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-				{t('Статья не найдена')}
-			</Page>
-		);
-	}
+	// if (!id) {
+	// 	return (
+	// 		<Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+	// 			{t('Статья не найдена')}
+	// 		</Page>
+	// 	);
+	// }
 
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>

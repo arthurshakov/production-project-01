@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserInited, userActions } from '../entities/User';
 import { AppRouter } from './providers/router';
 
-export function App() {
+function App() {
 	const dispatch = useDispatch();
 	const inited = useSelector(getUserInited);
 
@@ -28,3 +28,5 @@ export function App() {
 		</div>
 	);
 }
+
+export default App;

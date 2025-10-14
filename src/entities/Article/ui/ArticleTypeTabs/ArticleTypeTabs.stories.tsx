@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import 'app/styles/index.scss';
 import { ArticleTypeTabs } from './ArticleTypeTabs';
 
@@ -16,3 +17,4 @@ const Template: ComponentStory<typeof ArticleTypeTabs> = (args) => <ArticleTypeT
 
 export const Normal = Template.bind({});
 Normal.args = {};
+Normal.decorators = [StoreDecorator({})];
