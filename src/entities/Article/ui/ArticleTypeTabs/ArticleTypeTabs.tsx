@@ -3,7 +3,7 @@ import { memo, useCallback, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ArticleType } from '../../model/types/article';
+import { ArticleType } from '../../model/consts/consts';
 
 interface ArticleTypeTabsProps {
 	className?: string;

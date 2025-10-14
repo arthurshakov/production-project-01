@@ -32,6 +32,7 @@
     // можно писать такой
     // import React from 'react';
     "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
     "types": [
       "node",
       "react",

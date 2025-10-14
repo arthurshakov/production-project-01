@@ -8,7 +8,7 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { ForbiddenPage } from 'pages/ForbiddenPage';
 import { RouteProps } from 'react-router-dom';
-import { UserRole } from '../../../entities/User/model/types/user';
+import { UserRole } from '../../../entities/User/model/consts/consts';
 
 export type AppRoutesProps = RouteProps & {
 	authOnly?: boolean;
