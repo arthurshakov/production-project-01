@@ -1,15 +1,15 @@
-import { LoginSchema } from 'features/AuthByUserName';
-import { AddCommentFormSchema } from 'features/AddCommentForm';
-import { UISchema } from 'features/UI';
 import {
 	AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
+import { LoginSchema } from '@/features/AuthByUserName';
+import { AddCommentFormSchema } from '@/features/AddCommentForm';
+import { UISchema } from '@/features/UI';
 // import { NavigateOptions, To } from 'react-router-dom';
-import { rtkApi } from 'shared/api/rtkApi';
-import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
-import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { ProfileSchema } from 'features/editableProfileCard';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { ProfileSchema } from '@/features/editableProfileCard';
 import { CounterSchema } from '../../../../entities/Counter';
 import { UserSchema } from '../../../../entities/User';
 import { ArticleDetailsSchema } from '../../../../entities/Article';

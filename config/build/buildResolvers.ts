@@ -9,7 +9,7 @@ export function buildResolvers(options: BuildOptions): ResolveOptions {
 		modules: [options.paths.src, 'node_modules'],
 		mainFiles: ['index'],
 		alias: {
-			entities: path.resolve(__dirname, 'src/entities'),
+			'@': options.paths.src,
 		},
 	};
 }

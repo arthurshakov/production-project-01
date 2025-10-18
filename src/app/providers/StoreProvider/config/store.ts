@@ -1,10 +1,10 @@
 import {
 	CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { $api } from 'shared/api/api';
-import { rtkApi } from 'shared/api/rtkApi';
+import { $api } from '@/shared/api/api';
+import { rtkApi } from '@/shared/api/rtkApi';
 // import { NavigateOptions, To } from 'react-router-dom';
-import { uiReducer } from 'features/UI';
+import { uiReducer } from '@/features/UI';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { counterReducer } from '../../../../entities/Counter';
 import { userReducer } from '../../../../entities/User';

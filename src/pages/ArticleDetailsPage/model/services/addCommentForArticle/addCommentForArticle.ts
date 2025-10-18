@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 // import { getAddCommentFormText }
 // 	from 'features/AddCommentForm/model/selectors/addCommentFormSelectors';
 // import { addCommentFormActions }

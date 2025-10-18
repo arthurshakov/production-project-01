@@ -1,4 +1,4 @@
-import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk';
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/testAsyncThunk';
 import { validateProfileData } from './validateProfileData';
 import { Country } from '../../../../../entities/Country';
 import { Currency } from '../../../../../entities/Currency';
