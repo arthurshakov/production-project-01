@@ -2,17 +2,17 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import '@/app/styles/index.scss';
-import { <FTName> } from './<FTName>';
+import { RatingCard } from './RatingCard';
 
 export default {
-	title: 'shared/<FTName>',
-	component: <FTName>,
+	title: 'entities/Rating/RatingCard',
+	component: RatingCard,
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
-} as ComponentMeta<typeof <FTName>>;
+} as ComponentMeta<typeof RatingCard>;
 
-const Template: ComponentStory<typeof <FTName>> = (args) => <<FTName> {...args} />;
+const Template: ComponentStory<typeof RatingCard> = (args) => <RatingCard {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
