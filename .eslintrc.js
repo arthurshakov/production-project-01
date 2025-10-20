@@ -69,7 +69,7 @@ module.exports = {
 		'no-param-reassign': 'off',
 		'no-undef': 'off',
 		'react/no-array-index-key': 'off',
-		'artur11/path-checker': 'error',
+		'artur11/path-checker': ['error', { alias: '@' }],
 	},
 	globals: {
 		__IS_DEV__: true,
