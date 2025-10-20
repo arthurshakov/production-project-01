@@ -70,6 +70,10 @@ module.exports = {
 		'no-undef': 'off',
 		'react/no-array-index-key': 'off',
 		'artur11/path-checker': ['error', { alias: '@' }],
+		'artur11/public-api-imports': ['error', {
+			alias: '@',
+			testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+		}],
 	},
 	globals: {
 		__IS_DEV__: true,
