@@ -74,6 +74,10 @@ module.exports = {
 			alias: '@',
 			testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
 		}],
+		'artur11/layer-imports': ['error', {
+			alias: '@',
+			ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+		}],
 	},
 	globals: {
 		__IS_DEV__: true,

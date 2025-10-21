@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import '@/app/styles/index.scss';
 import { Card } from './Card';
 import { Text } from '../Text/Text';
 

@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { action } from '@storybook/addon-actions';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import '@/app/styles/index.scss';
 import AddCommentForm from './AddCommentForm';
 
 export default {

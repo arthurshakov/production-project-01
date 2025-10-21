@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import '@/app/styles/index.scss';
 import avatar from '@/shared/assets/tests/storybook.jpg';
 import { Country } from '../../../../entities/Country';
 import { Currency } from '../../../../entities/Currency';
