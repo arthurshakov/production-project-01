@@ -23,6 +23,7 @@ module.exports = {
 		'i18next',
 		'react-hooks',
 		'artur11',
+		'unused-imports',
 	],
 	rules: {
 		'react/jsx-indent': ['error', 'tab'],
@@ -69,6 +70,7 @@ module.exports = {
 		'no-param-reassign': 'off',
 		'no-undef': 'off',
 		'react/no-array-index-key': 'off',
+		'unused-imports/no-unused-imports': 'error',
 		'artur11/path-checker': ['error', { alias: '@' }],
 		'artur11/public-api-imports': ['error', {
 			alias: '@',
