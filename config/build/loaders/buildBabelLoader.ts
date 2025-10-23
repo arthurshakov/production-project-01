@@ -6,21 +6,20 @@ interface BuildBabelLoaderProps extends BuildOptions {
 }
 
 export function buildBabelLoader({isDev, isTsx}: BuildBabelLoaderProps) {
+	const isProd = !isDev;
+
 	return {
 		test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
 		exclude: /node_modules/, // Exclude files in node_modules to speed up compilation
 		use: {
 			loader: 'babel-loader',
 			options: {
+				cacheDirectory: true, // Enable caching for faster rebuilds
 				// Babel options can be defined here or in a separate Babel config file (.babelrc or babel.config.js)
 				presets: [
 					['@babel/preset-env', { targets: 'defaults' }], // Transpile based on target environments
 				],
 				plugins: [
-					['i18next-extract', {
-						locales: ['ru', 'en'],
-						keyAsDefaultValue: true,
-					}],
 					[
 						'@babel/plugin-transform-typescript',
 						{
@@ -28,7 +27,7 @@ export function buildBabelLoader({isDev, isTsx}: BuildBabelLoaderProps) {
 						},
 					],
 					'@babel/plugin-transform-runtime',
-					isTsx &&  [
+					isTsx && isProd &&  [
 						babelRemovePropsPlugin,
 						{
 							props: ['data-testid'],
@@ -36,7 +35,6 @@ export function buildBabelLoader({isDev, isTsx}: BuildBabelLoaderProps) {
 					],
 					isDev && require.resolve('react-refresh/babel'),
 				].filter(Boolean),
-				cacheDirectory: true, // Enable caching for faster rebuilds
 			},
 		},
 	};
