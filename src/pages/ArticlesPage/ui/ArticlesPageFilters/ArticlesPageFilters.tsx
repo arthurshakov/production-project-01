@@ -10,12 +10,12 @@ import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import cls from './ArticlesPageFilters.module.scss';
 import {
 	ArticleView,
-	ArticleViewSelector,
-	ArticleSortSelector,
 	ArticleSortField,
 	ArticleType,
-	ArticleTypeTabs,
 } from '../../../../entities/Article';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import {
 	getArticlesPageOrder,

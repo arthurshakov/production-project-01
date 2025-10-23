@@ -1,11 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleTypeTabs } from './ArticleTypeTabs';
 
 export default {
-	title: 'entities/Article/ArticleTypeTabs',
+	title: 'features/ArticleTypeTabs',
 	component: ArticleTypeTabs,
 	argTypes: {
 		backgroundColor: { control: 'color' },
@@ -15,5 +14,6 @@ export default {
 const Template: ComponentStory<typeof ArticleTypeTabs> = (args) => <ArticleTypeTabs {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [StoreDecorator({})];
+Normal.args = {
+
+};

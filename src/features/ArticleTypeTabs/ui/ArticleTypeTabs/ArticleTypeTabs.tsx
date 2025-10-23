@@ -2,18 +2,17 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { TabItem, Tabs } from '@/shared/ui/Tabs';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ArticleType } from '../../model/consts/consts';
+import { ArticleType } from '@/entities/Article';
 
 interface ArticleTypeTabsProps {
-	className?: string;
-	value: ArticleType;
-	onChangeType: (type: ArticleType) => void;
+    className?: string;
+    value: ArticleType;
+    onChangeType: (type: ArticleType) => void;
 }
 
-export const ArticleTypeTabs = memo(({ className, value, onChangeType }: ArticleTypeTabsProps) => {
+export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
+	const { className, value, onChangeType } = props;
 	const { t } = useTranslation();
-	const dispatch = useAppDispatch();
 
 	const typeTabs = useMemo<TabItem[]>(() => [
 		{
@@ -22,7 +21,7 @@ export const ArticleTypeTabs = memo(({ className, value, onChangeType }: Article
 		},
 		{
 			value: ArticleType.IT,
-			content: t('IT'),
+			content: t('Айти'),
 		},
 		{
 			value: ArticleType.ECONOMICS,
@@ -39,12 +38,11 @@ export const ArticleTypeTabs = memo(({ className, value, onChangeType }: Article
 	}, [onChangeType]);
 
 	return (
-		<div className={classNames('', {}, [className])}>
-			<Tabs
-				tabs={typeTabs}
-				value={value}
-				onTabClick={onTabClick}
-			/>
-		</div>
+		<Tabs
+			tabs={typeTabs}
+			value={value}
+			onTabClick={onTabClick}
+			className={classNames('', {}, [className])}
+		/>
 	);
 });
