@@ -10,9 +10,10 @@ import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfin
 import { getUIScrollByPath, uiActions } from '@/features/UI';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
+import { TestProps } from '@/shared/types/tests';
 import cls from './Page.module.scss';
 
-interface PageProps {
+interface PageProps extends TestProps {
 	className?: string;
 	children: ReactNode;
 	onScrollEnd?: () => void;
@@ -20,7 +21,8 @@ interface PageProps {
 
 export const PAGE_ID = 'PAGE_ID';
 
-export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
+export const Page = memo((props: PageProps) => {
+	const { className, children, onScrollEnd } = props;
 	const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
 	const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
 	const dispatch = useAppDispatch();
@@ -34,8 +36,6 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
 	});
 
 	const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-		console.log('scroll');
-
 		dispatch(uiActions.setScrollPosition({
 			path: pathname,
 			position: e.currentTarget.scrollTop,
@@ -52,6 +52,7 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
 			className={classNames(cls.Page, {}, [className])}
 			onScroll={onScroll}
 			id={PAGE_ID}
+			data-testid={props['data-testid'] ?? 'Page'}
 		>
 			{children}
 

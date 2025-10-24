@@ -13,7 +13,7 @@ const MainPage = () => {
 	};
 
 	return (
-		<Page>
+		<Page data-testid="MainPage">
 			{t('Главная')}
 			<Counter />
 			<Input onChange={onChange} value={value} />
