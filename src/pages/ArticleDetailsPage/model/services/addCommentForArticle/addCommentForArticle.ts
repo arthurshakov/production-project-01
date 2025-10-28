@@ -6,53 +6,47 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 // 	from 'features/AddCommentForm/model/slices/addCommentFormSlice';
 import { getUserAuthData } from '../../../../../entities/User';
 import { Comment } from '../../../../../entities/Comment';
-import { getArticleDetailsData }
-	from '../../../../../entities/Article/model/selectors/articleDetails';
+import { getArticleDetailsData } from '../../../../../entities/Article/model/selectors/articleDetails';
 import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 export interface SendCommentProps {
-	username: string;
-	password: string;
+  username: string;
+  password: string;
 }
 
 export const addCommentForArticle = createAsyncThunk<
-	Comment,
-	string,
-	ThunkConfig<string>
->(
-	'articleDetails/addCommentForArticle',
-	async (text, thunkApi) => {
-		const {
-			extra, dispatch, rejectWithValue, getState,
-		} = thunkApi;
+  Comment,
+  string,
+  ThunkConfig<string>
+>('articleDetails/addCommentForArticle', async (text, thunkApi) => {
+  const { extra, dispatch, rejectWithValue, getState } = thunkApi;
 
-		const userData = getUserAuthData(getState());
-		// const text = getAddCommentFormText(getState());
-		const article = getArticleDetailsData(getState());
+  const userData = getUserAuthData(getState());
+  // const text = getAddCommentFormText(getState());
+  const article = getArticleDetailsData(getState());
 
-		if (!userData || !text || !article) {
-			return rejectWithValue('no data');
-		}
+  if (!userData || !text || !article) {
+    return rejectWithValue('no data');
+  }
 
-		try {
-			const response = await extra.api.post<Comment>('/comments', {
-				articleId: article.id,
-				userId: userData.id,
-				text,
-			});
+  try {
+    const response = await extra.api.post<Comment>('/comments', {
+      articleId: article.id,
+      userId: userData.id,
+      text,
+    });
 
-			if (!response.data) {
-				throw new Error();
-			}
+    if (!response.data) {
+      throw new Error();
+    }
 
-			// dispatch(addCommentFormActions.setText(''));
-			dispatch(fetchCommentsByArticleId(article.id));
+    // dispatch(addCommentFormActions.setText(''));
+    dispatch(fetchCommentsByArticleId(article.id));
 
-			return response.data;
-		} catch (e) {
-			console.log(e);
+    return response.data;
+  } catch (e) {
+    console.log(e);
 
-			return rejectWithValue('error');
-		}
-	},
-);
+    return rejectWithValue('error');
+  }
+});

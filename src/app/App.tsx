@@ -7,26 +7,26 @@ import { getUserInited, userActions } from '../entities/User';
 import { AppRouter } from './providers/router';
 
 function App() {
-	const dispatch = useDispatch();
-	const inited = useSelector(getUserInited);
+  const dispatch = useDispatch();
+  const inited = useSelector(getUserInited);
 
-	useEffect(() => {
-		dispatch(userActions.initAuthData());
-	}, [dispatch]);
+  useEffect(() => {
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
 
-	return (
-		<div className={classNames('app', { hovered: true }, [])}>
-			<Suspense fallback="">
-				<Navbar />
+  return (
+    <div className={classNames('app', { hovered: true }, [])}>
+      <Suspense fallback="">
+        <Navbar />
 
-				<div className="content-page">
-					<Sidebar />
+        <div className="content-page">
+          <Sidebar />
 
-					{inited && <AppRouter />}
-				</div>
-			</Suspense>
-		</div>
-	);
+          {inited && <AppRouter />}
+        </div>
+      </Suspense>
+    </div>
+  );
 }
 
 export default App;

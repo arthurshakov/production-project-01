@@ -6,18 +6,18 @@ import { NotFoundPage } from './NotFoundPage';
 import { Theme } from '@/shared/const/theme';
 
 export default {
-	title: 'pages/NotFoundPage/NotFoundPage',
-	component: NotFoundPage,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'pages/NotFoundPage/NotFoundPage',
+  component: NotFoundPage,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof NotFoundPage>;
 
 type NotFoundPageProps = React.ComponentProps<typeof NotFoundPage>;
 
-const Template: ComponentStory<typeof NotFoundPage> = (args: NotFoundPageProps) => (
-	<NotFoundPage {...args} />
-);
+const Template: ComponentStory<typeof NotFoundPage> = (
+  args: NotFoundPageProps,
+) => <NotFoundPage {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
