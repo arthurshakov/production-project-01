@@ -9,7 +9,7 @@
     "start:dev": "concurrently \"npm start\" \"npm run start:dev:server\"",
     "start:dev:vite": "concurrently \"npm run start:vite\" \"npm run start:dev:server\"",
     "start:dev:server": "node ./json-server/index",
-    "build:prod": "webpack --env mode=production apiUrl=https://production-project-server-ena5wrht2-arturs-projects-1b5a2f1e.vercel.app",
+    "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "prettier": "npx prettier --write \"**/*.{ts,tsx,json}\"",
     "lint:ts": "eslint '**/*.{ts,tsx}'",
@@ -27,7 +27,7 @@
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook",
-    "json-server": "json-server --watch ./json-server/db.json --port 8443",
+    "json-server": "json-server --watch ./json-server/db.json --port 8000",
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js",
     "postinstall": "node ./scripts/clear-cache.js"
