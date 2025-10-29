@@ -9,7 +9,7 @@ export const login = (
   return cy
     .request({
       method: 'POST',
-      url: 'http://localhost:8443/login',
+      url: 'http://localhost:8000/login',
       body: {
         username,
         password,
