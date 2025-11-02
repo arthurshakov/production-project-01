@@ -1,12 +1,14 @@
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { getUserInited, userActions } from '../entities/User';
 import { AppRouter } from './providers/router';
 
 function App() {
+  const { theme } = useTheme();
   const dispatch = useDispatch();
   const inited = useSelector(getUserInited);
 
@@ -15,7 +17,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className={classNames('app', { hovered: true }, [])}>
+    <div className={classNames('app', { hovered: true }, [theme])}>
       <Suspense fallback="">
         <Navbar />
 
