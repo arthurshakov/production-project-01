@@ -14,8 +14,6 @@ export const userSlice = createSlice({
     setAuthData: (state, action: PayloadAction<User>) => {
       state.authData = action.payload;
       setFeatureFlags(action.payload.features);
-
-      console.log(action.payload);
     },
     initAuthData: (state) => {
       const user = localStorage.getItem(USER_LOCAL_STORAGE_KEY);

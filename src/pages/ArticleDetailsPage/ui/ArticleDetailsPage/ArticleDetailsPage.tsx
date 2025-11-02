@@ -10,13 +10,13 @@ import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleRating } from '@/features/articleRating';
-import { getFeatureFlag } from '@/shared/lib/features';
+import { toggleFeatures } from '@/shared/lib/features';
 import { ArticleDetails } from '@/entities/Article';
-import { Counter } from '@/entities/Counter';
 import cls from './ArticleDetailsPage.module.scss';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
+import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -29,8 +29,6 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('article-details');
   const { id } = useParams<{ id: string }>();
-  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
-  const isCounterEnabled = getFeatureFlag('isCounterEnabled');
 
   if (!id) {
     return (
@@ -40,6 +38,12 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     );
   }
 
+  const articleRatingCard = toggleFeatures({
+    name: 'isArticleRatingEnabled',
+    on: () => <ArticleRating articleId={id} />,
+    off: () => <Card>{t('Оценка статей скоро появится!')}</Card>,
+  });
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
@@ -48,9 +52,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
           <ArticleDetails id={id} />
 
-          {isCounterEnabled && <Counter />}
-
-          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+          {articleRatingCard}
 
           <ArticleRecommendationsList />
 
