@@ -5,20 +5,20 @@ import { Page } from '@/widgets/Page';
 import { Counter } from '@/entities/Counter';
 
 const MainPage = () => {
-  const { t } = useTranslation();
-  const [value, setValue] = useState('');
+	const { t } = useTranslation();
+	const [value, setValue] = useState('');
 
-  const onChange = (val: string) => {
-    setValue(val);
-  };
+	const onChange = (val: string) => {
+		setValue(val);
+	};
 
-  return (
-    <Page data-testid="MainPage">
-      {t('Главная')}
-      <Counter />
-      <Input onChange={onChange} value={value} />
-    </Page>
-  );
+	return (
+		<Page data-testid="MainPage">
+			{t('Главная')}
+			<Counter />
+			<Input onChange={onChange} value={value} />
+		</Page>
+	);
 };
 
 export default MainPage;

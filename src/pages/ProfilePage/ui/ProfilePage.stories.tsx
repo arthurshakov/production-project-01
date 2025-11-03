@@ -9,28 +9,28 @@ import { Currency } from '../../../entities/Currency';
 import ProfilePage from './ProfilePage';
 
 export default {
-  title: 'pages/ProfilePage/ProfilePage',
-  component: ProfilePage,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+	title: 'pages/ProfilePage/ProfilePage',
+	component: ProfilePage,
+	argTypes: {
+		backgroundColor: { control: 'color' },
+	},
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 const storeDecoratorData = {
-  profile: {
-    form: {
-      username: 'admin',
-      age: 22,
-      country: Country.Ukraine,
-      lastname: 'ulbi tv',
-      first: 'asd',
-      city: 'asf',
-      currency: Currency.USD,
-      avatar,
-    },
-  },
+	profile: {
+		form: {
+			username: 'admin',
+			age: 22,
+			country: Country.Ukraine,
+			lastname: 'ulbi tv',
+			first: 'asd',
+			city: 'asf',
+			currency: Currency.USD,
+			avatar,
+		},
+	},
 };
 
 export const Normal = Template.bind({});
@@ -40,6 +40,6 @@ Normal.decorators = [StoreDecorator(storeDecoratorData)];
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator(storeDecoratorData),
+	ThemeDecorator(Theme.DARK),
+	StoreDecorator(storeDecoratorData),
 ];

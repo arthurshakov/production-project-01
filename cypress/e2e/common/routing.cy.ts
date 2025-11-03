@@ -1,36 +1,36 @@
 import { selectByTestId } from 'cypress/helpers/selectByTestId';
 
 describe('Роутинг', () => {
-  describe('Пользователь НЕ авторизован', () => {
-    it('Переход на главную страницу', () => {
-      cy.visit('/');
-      cy.get(selectByTestId('MainPage')).should('exist');
-    });
+	describe('Пользователь НЕ авторизован', () => {
+		it('Переход на главную страницу', () => {
+			cy.visit('/');
+			cy.get(selectByTestId('MainPage')).should('exist');
+		});
 
-    it('Переход открывает страницу профиля', () => {
-      cy.visit('/profile/1');
-      cy.get(selectByTestId('MainPage')).should('exist');
-    });
+		it('Переход открывает страницу профиля', () => {
+			cy.visit('/profile/1');
+			cy.get(selectByTestId('MainPage')).should('exist');
+		});
 
-    it('Пользователь открывает несуществующий маршрут', () => {
-      cy.visit('/asdasd');
-      cy.get(selectByTestId('NotFoundPage')).should('exist');
-    });
-  });
+		it('Пользователь открывает несуществующий маршрут', () => {
+			cy.visit('/asdasd');
+			cy.get(selectByTestId('NotFoundPage')).should('exist');
+		});
+	});
 
-  describe('Пользователь авторизован', () => {
-    beforeEach(() => {
-      cy.login();
-    });
+	describe('Пользователь авторизован', () => {
+		beforeEach(() => {
+			cy.login();
+		});
 
-    it('Переход открывает страницу профиля', () => {
-      cy.visit('/profile/1');
-      cy.get(selectByTestId('ProfilePage')).should('exist');
-    });
+		it('Переход открывает страницу профиля', () => {
+			cy.visit('/profile/1');
+			cy.get(selectByTestId('ProfilePage')).should('exist');
+		});
 
-    it('Переход открывает страницу со списком статей', () => {
-      cy.visit('/articles');
-      cy.get(selectByTestId('ArticlesPage')).should('exist');
-    });
-  });
+		it('Переход открывает страницу со списком статей', () => {
+			cy.visit('/articles');
+			cy.get(selectByTestId('ArticlesPage')).should('exist');
+		});
+	});
 });

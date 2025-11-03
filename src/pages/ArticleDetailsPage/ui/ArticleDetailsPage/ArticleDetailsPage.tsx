@@ -3,8 +3,8 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-  DynamicModuleLoader,
-  ReducersList,
+	DynamicModuleLoader,
+	ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
@@ -19,48 +19,48 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
-  className?: string;
+	className?: string;
 }
 
 const reducers: ReducersList = {
-  articleDetailsPage: articleDetailsPageReducer,
+	articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
-  const { t } = useTranslation('article-details');
-  const { id } = useParams<{ id: string }>();
+	const { t } = useTranslation('article-details');
+	const { id } = useParams<{ id: string }>();
 
-  if (!id) {
-    return (
-      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        {t('Статья не найдена')}
-      </Page>
-    );
-  }
+	if (!id) {
+		return (
+			<Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+				{t('Статья не найдена')}
+			</Page>
+		);
+	}
 
-  const articleRatingCard = toggleFeatures({
-    name: 'isArticleRatingEnabled',
-    on: () => <ArticleRating articleId={id} />,
-    off: () => <Card>{t('Оценка статей скоро появится!')}</Card>,
-  });
+	const articleRatingCard = toggleFeatures({
+		name: 'isArticleRatingEnabled',
+		on: () => <ArticleRating articleId={id} />,
+		off: () => <Card>{t('Оценка статей скоро появится!')}</Card>,
+	});
 
-  return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <VStack gap="16" max>
-          <ArticleDetailsPageHeader />
+	return (
+		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+			<Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+				<VStack gap="16" max>
+					<ArticleDetailsPageHeader />
 
-          <ArticleDetails id={id} />
+					<ArticleDetails id={id} />
 
-          {articleRatingCard}
+					{articleRatingCard}
 
-          <ArticleRecommendationsList />
+					<ArticleRecommendationsList />
 
-          <ArticleDetailsComments id={id} />
-        </VStack>
-      </Page>
-    </DynamicModuleLoader>
-  );
+					<ArticleDetailsComments id={id} />
+				</VStack>
+			</Page>
+		</DynamicModuleLoader>
+	);
 };
 
 export default memo(ArticleDetailsPage);

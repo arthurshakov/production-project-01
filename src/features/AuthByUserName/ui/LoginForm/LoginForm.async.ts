@@ -7,5 +7,5 @@ import { LoginFormProps } from './LoginForm';
 // 	});
 // });
 export const LoginFormAsync = lazy<FC<LoginFormProps>>(
-  () => import('./LoginForm'),
+	() => import('./LoginForm'),
 );

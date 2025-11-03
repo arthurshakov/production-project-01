@@ -15,40 +15,40 @@ import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { CommentList } from '../../../../entities/Comment';
 
 interface ArticleDetailsCommentsProps {
-  className?: string;
-  id?: string;
+	className?: string;
+	id?: string;
 }
 
 export const ArticleDetailsComments = memo(
-  ({ className, id }: ArticleDetailsCommentsProps) => {
-    const { t } = useTranslation();
-    const comments = useSelector(getArticleComments.selectAll);
-    const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-    // const commentsError = useSelector(getArticleCommentsError);
-    const dispatch = useAppDispatch();
+	({ className, id }: ArticleDetailsCommentsProps) => {
+		const { t } = useTranslation();
+		const comments = useSelector(getArticleComments.selectAll);
+		const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+		// const commentsError = useSelector(getArticleCommentsError);
+		const dispatch = useAppDispatch();
 
-    const onSendComment = useCallback(
-      (text: string) => {
-        dispatch(addCommentForArticle(text));
-      },
-      [dispatch],
-    );
+		const onSendComment = useCallback(
+			(text: string) => {
+				dispatch(addCommentForArticle(text));
+			},
+			[dispatch],
+		);
 
-    useInitialEffect(() => {
-      dispatch(fetchCommentsByArticleId(id));
-      // dispatch(fetchArticleRecommendations());
-    });
+		useInitialEffect(() => {
+			dispatch(fetchCommentsByArticleId(id));
+			// dispatch(fetchArticleRecommendations());
+		});
 
-    return (
-      <VStack gap="16" max className={classNames('', {}, [className])}>
-        <Text size={TextSize.L} title={t('Комментарии')} />
+		return (
+			<VStack gap="16" max className={classNames('', {}, [className])}>
+				<Text size={TextSize.L} title={t('Комментарии')} />
 
-        <Suspense fallback={<Loader />}>
-          <AddCommentForm onSendComment={onSendComment} />
-        </Suspense>
+				<Suspense fallback={<Loader />}>
+					<AddCommentForm onSendComment={onSendComment} />
+				</Suspense>
 
-        <CommentList isLoading={commentsIsLoading} comments={comments} />
-      </VStack>
-    );
-  },
+				<CommentList isLoading={commentsIsLoading} comments={comments} />
+			</VStack>
+		);
+	},
 );

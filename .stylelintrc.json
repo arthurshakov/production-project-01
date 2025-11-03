@@ -1,8 +1,8 @@
 {
-  "extends": "stylelint-config-standard-scss",
-  "rules": {
-    "indentation": "tab",
-    "selector-class-pattern": null,
-    "value-keyword-case": ["lower", { "ignoreKeywords": ["currentColor"] }]
-  }
+	"extends": "stylelint-config-standard-scss",
+	"rules": {
+		"indentation": "tab",
+		"selector-class-pattern": null,
+		"value-keyword-case": ["lower", { "ignoreKeywords": ["currentColor"] }]
+	}
 }

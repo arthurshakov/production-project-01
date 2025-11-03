@@ -4,25 +4,25 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
 
 interface BugButtonProps {
-  className?: string;
+	className?: string;
 }
 
 // Компонент для тестирования ErrorBoundary
 export const BugButton = ({ className }: BugButtonProps) => {
-  const [error, setError] = useState(false);
-  const { t } = useTranslation();
+	const [error, setError] = useState(false);
+	const { t } = useTranslation();
 
-  const onThrow = () => setError(true);
+	const onThrow = () => setError(true);
 
-  useEffect(() => {
-    if (error) {
-      throw new Error();
-    }
-  }, [error]);
+	useEffect(() => {
+		if (error) {
+			throw new Error();
+		}
+	}, [error]);
 
-  return (
-    <Button className={classNames('', {}, [className])} onClick={onThrow}>
-      {t('Бросить ошибку')}
-    </Button>
-  );
+	return (
+		<Button className={classNames('', {}, [className])} onClick={onThrow}>
+			{t('Бросить ошибку')}
+		</Button>
+	);
 };

@@ -4,37 +4,39 @@ import { Theme } from '@/shared/const/theme';
 import { useJsonSettings } from '@/entities/User';
 
 interface ThemeProviderProps {
-  initialTheme?: Theme;
-  children: ReactNode;
+	initialTheme?: Theme;
+	children: ReactNode;
 }
 
 export const ThemeProvider = ({
-  children,
-  initialTheme,
+	children,
+	initialTheme,
 }: ThemeProviderProps) => {
-  const { theme: defaultTheme = Theme.LIGHT } = useJsonSettings();
-  const [isThemeInited, setThemeInited] = useState(false);
+	const { theme: defaultTheme } = useJsonSettings();
+	const [isThemeInited, setThemeInited] = useState(false);
 
-  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+	const [theme, setTheme] = useState<Theme>(
+		initialTheme || defaultTheme || Theme.LIGHT,
+	);
 
-  useEffect(() => {
-    if (!isThemeInited) {
-      setTheme(defaultTheme);
-      setThemeInited(true);
-    }
-  }, [defaultTheme, isThemeInited]);
+	useEffect(() => {
+		if (!isThemeInited && defaultTheme) {
+			setTheme(defaultTheme);
+			setThemeInited(true);
+		}
+	}, [defaultTheme, isThemeInited]);
 
-  const defaultProps = useMemo(
-    () => ({
-      theme,
-      setTheme,
-    }),
-    [theme],
-  );
+	const defaultProps = useMemo(
+		() => ({
+			theme,
+			setTheme,
+		}),
+		[theme],
+	);
 
-  return (
-    <ThemeContext.Provider value={defaultProps}>
-      {children}
-    </ThemeContext.Provider>
-  );
+	return (
+		<ThemeContext.Provider value={defaultProps}>
+			{children}
+		</ThemeContext.Provider>
+	);
 };
