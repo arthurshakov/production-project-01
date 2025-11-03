@@ -9,6 +9,7 @@ import {
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './ArticlesPage.module.scss';
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
@@ -45,6 +46,8 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 				<ArticlesPageFilters />
 
 				<ArticleInfiniteList className={cls.list} />
+
+				<ArticlePageGreeting />
 			</Page>
 		</DynamicModuleLoader>
 	);
