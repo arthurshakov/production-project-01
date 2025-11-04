@@ -623,11 +623,12 @@
       ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isAppRedesigned": true
       },
       "avatar": "https://avatars.mds.yandex.net/i?id=7fdc814b7c969b92f331d49a5673ffdeb73c5020-13609632-images-thumbs",
       "jsonSettings": {
-        "theme": "app_orange_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true
