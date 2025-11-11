@@ -4,7 +4,7 @@ import {
 	PayloadAction,
 } from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { ARTICLE_VIEW_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage';
+import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { SortOrder } from '@/shared/types/sort';
 import {
 	Article,
@@ -43,7 +43,7 @@ const articlesPageSlice = createSlice({
 	reducers: {
 		setView: (state, action: PayloadAction<ArticleView>) => {
 			state.view = action.payload;
-			localStorage.setItem(ARTICLE_VIEW_LOCAL_STORAGE_KEY, action.payload);
+			localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload);
 		},
 		setPage: (state, action: PayloadAction<number>) => {
 			state.page = action.payload;
@@ -62,7 +62,7 @@ const articlesPageSlice = createSlice({
 		},
 		initState: (state) => {
 			const view = localStorage.getItem(
-				ARTICLE_VIEW_LOCAL_STORAGE_KEY,
+				ARTICLES_VIEW_LOCALSTORAGE_KEY,
 			) as ArticleView;
 			state.view = view;
 
