@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useMemo, useState } from 'react';
+import React, { ReactNode, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from '../../../../shared/lib/context/ThemeContext';
 import { Theme } from '@/shared/const/theme';
 import { useJsonSettings } from '@/entities/User';
@@ -8,10 +8,8 @@ interface ThemeProviderProps {
 	children: ReactNode;
 }
 
-export const ThemeProvider = ({
-	children,
-	initialTheme,
-}: ThemeProviderProps) => {
+const ThemeProvider = (props: ThemeProviderProps) => {
+	const { initialTheme, children } = props;
 	const { theme: defaultTheme } = useJsonSettings();
 	const [isThemeInited, setThemeInited] = useState(false);
 
@@ -25,6 +23,10 @@ export const ThemeProvider = ({
 			setThemeInited(true);
 		}
 	}, [defaultTheme, isThemeInited]);
+
+	useEffect(() => {
+		document.body.className = theme;
+	}, [theme]);
 
 	const defaultProps = useMemo(
 		() => ({
@@ -40,3 +42,5 @@ export const ThemeProvider = ({
 		</ThemeContext.Provider>
 	);
 };
+
+export default ThemeProvider;
