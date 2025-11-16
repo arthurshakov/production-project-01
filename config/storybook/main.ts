@@ -1,23 +1,25 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
 import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 
 export default {
 	stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
-
 	addons: [
 		'@storybook/addon-links',
+		{
+			name: '@storybook/addon-essentials',
+			options: {
+				backgrounds: false,
+			},
+		},
+		'@storybook/addon-interactions',
 		'storybook-addon-mock',
 		'storybook-addon-themes',
-		'@storybook/addon-docs',
 	],
 	framework: '@storybook/react',
-
 	core: {
 		builder: 'webpack5',
 	},
-
 	webpackFinal: async (config: Configuration) => {
 		const paths = {
 			build: '',
@@ -34,14 +36,16 @@ export default {
 			'@': paths.src,
 		};
 
-		// @ts-ignore
-		config!.module!.rules = config!.module!.rules!.map((rule: RuleSetRule) => {
-			if (/svg/.test(rule.test as string)) {
-				return { ...rule, exclude: /\.svg$/i };
-			}
+		config!.module!.rules = config!.module!.rules!.map(
+			// @ts-ignore
+			(rule: RuleSetRule) => {
+				if (/svg/.test(rule.test as string)) {
+					return { ...rule, exclude: /\.svg$/i };
+				}
 
-			return rule;
-		});
+				return rule;
+			},
+		);
 
 		config!.module!.rules.push({
 			test: /\.svg$/,
@@ -58,9 +62,5 @@ export default {
 		);
 		// Return the altered config
 		return config;
-	},
-
-	features: {
-		backgrounds: false,
 	},
 };
